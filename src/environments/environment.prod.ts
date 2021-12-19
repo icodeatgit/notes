@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  ROOT_URL: 'http://notes-nodejsapi.herokuapp.com'
 };
