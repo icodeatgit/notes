@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { NewListComponent } from './pages/new-list/new-list.component';
 import { NewTaskComponent } from './pages/new-task/new-task.component';
 import { TaskviewComponent } from './pages/taskview/taskview.component';
-import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/lists', pathMatch: 'full' },

@@ -47,6 +47,14 @@
     flex-direction: column;
     margin-top: 15px;
     flex-grow: 1;
+    padding: 0px 0px 10px 0px;
+    border: 10px solid white;
+    overflow:hidden;
+
+    &:hover{
+        overflow: auto;
+        opacity: 1;
+    }
 
     .list-menu-item {
         display: flex;
