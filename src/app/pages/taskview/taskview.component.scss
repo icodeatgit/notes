@@ -13,6 +13,9 @@
     height: 100%;
     max-width: 1000px;
     max-height: 680px;
+    padding: 8px;
+    background: white;
+    border-radius: 8px;
 }
 
 .sidebar {
@@ -21,16 +24,14 @@
     width: 250px;
     background: white;
     padding: 42px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
 }
 
 .task-list-container {
+    overflow-x: auto;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-radius: 8px;
     padding: 42px;
     position: relative;
 }
@@ -60,7 +61,7 @@
             background: $light;
         }
         &.is-active {
-            background-color: #cff8ef;
+            background-color: #eddbf4;
             color: $dark-green;
         }
     }
@@ -72,7 +73,7 @@
     border-radius: 5px;
     margin-top: 10px;
 
-    &:not(.complete) {
+    &:not(.completed) {
         transition: box-shadow 0.2s ease, transform 0.2s ease;
         cursor: pointer;
 
@@ -85,9 +86,19 @@
         }    
     }
 
-    &.complete {
+    &.completed {
         text-decoration: line-through;
         opacity: 0.8;
+        background: rgb(228, 228, 228);
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+        cursor: pointer;
+        &:active {
+            transform: scale(0.95);
+        }
+
+        &:hover {
+            box-shadow: 0 0 0 5px rgb(189, 189, 189);
+        }    
     }
 }
 .circle-add-button {

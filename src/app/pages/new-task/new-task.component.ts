@@ -9,12 +9,11 @@ import { TaskService } from 'src/app/service/task.service';
   styleUrls: ['./new-task.component.scss']
 })
 export class NewTaskComponent implements OnInit {
-  tasks: Task | undefined;
-  listId: string;
+  
+  tasks: Task = new Task;
+  listId: string = '';
 
-  constructor(private taskService: TaskService, private route: ActivatedRoute, private router: Router) {
-    this.listId = '';
-   }
+  constructor(private taskService: TaskService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {

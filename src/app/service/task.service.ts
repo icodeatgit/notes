@@ -11,22 +11,26 @@ export class TaskService {
 
   constructor(private webRequestService: WebRequestService) { }
 
-  getLists(): Observable<Object> {
-    debugger;
-    return this.webRequestService.get(`lists`);
+  getLists(): Observable<List[]> {
+    return this.webRequestService.getLists(`lists`);
   }
 
   createList(title: string): Observable<List> {
-    return this.webRequestService.post(`lists`, { title });
+    return this.webRequestService.postList(`lists`, { title });
   }
 
-  getTasks(listId: string): Observable<Object> {
-    debugger;
-    return this.webRequestService.get(`lists/${listId}/tasks`);
+  getTasks(listId: string): Observable<Task[]> {
+    return this.webRequestService.getTasks(`lists/${listId}/tasks`);
   }
 
   createTask(title: string, listId: string): Observable<Task> {
     return this.webRequestService.postTask(`lists/${listId}/tasks`, { title });
+  }
+
+  complete(task: Task): Observable<Task> {
+    return this.webRequestService.patchTask(`lists/${task._listId}/tasks/${task._id}`, {
+      completed: !task.completed
+    });
   }
 
 }
