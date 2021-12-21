@@ -6,30 +6,30 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  // animations: [
-  //   trigger('routeAnimation', [
-  //     transition('* => *',[
-  //       query(':enter', [
-  //         style({
-  //           opacity: 0,
-  //           display: 'block'
-  //         }),
-  //         animate(1000), style({
-  //           opacity: 1
-  //         })
-  //       ], {
-  //         optional: true
-  //       })
-  //     ])     
-  //   ])
-  // ]
+  animations: [
+    trigger('routeAnimation', [
+      transition('* => *',[
+        query(':enter', [
+          style({
+            opacity: 0,
+            display: 'block'
+          }),
+          animate(1000), style({
+            opacity: 1
+          })
+        ], {
+          optional: true
+        })
+      ])     
+    ])
+  ]
 })
 export class AppComponent {
   
-  // prepareRoute(outlet: RouterOutlet) {
-  //   if (outlet.isActivated) {
-  //     return outlet.activatedRoute.snapshot.url;
-  //   }
-  //   return outlet?.activatedRouteData?.['animation'];
-  // }
+  prepareRoute(outlet: RouterOutlet) {
+    if (outlet.isActivated) {
+      return outlet.activatedRoute.snapshot.url;
+    }
+    return outlet?.activatedRouteData?.['animation'];
+  }
 }

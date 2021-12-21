@@ -6,7 +6,7 @@
                 Lists
             </h1>
             <div class="list-menu">
-                <a class="list-menu-item" *ngFor="let list of lists" routerLinkActive="is-active" 
+                <a class="list-menu-item" *ngFor="let list of lists | reverseData" routerLinkActive="is-active" 
                 [routerLink]="['/lists', list._id]">
                     <p>{{ list.title }}</p>
                 </a>
@@ -20,7 +20,7 @@
             <h1 class="title has-text-primary">
                 Tasks
             </h1>
-            <div class="task" *ngFor="let task of tasks" (click)="onTaskClick(task)" [ngClass]="{ 'completed': task.completed }">
+            <div class="task" *ngFor="let task of tasks | reverseData" (click)="onTaskClick(task)" [ngClass]="{ 'completed': task.completed }">
                 <p>{{ task.title }}</p>
             </div>
 

@@ -1,13 +1,5 @@
 @import '../../../main-styles.scss';
 
-.centered-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    //padding: 35px;
-}
 .task-manager-container {
     display: flex;
     width: 100%;
@@ -117,4 +109,49 @@
     bottom: 35px;
     right: 35px;
     border-radius: 50%;
+}
+
+@media(max-width: 500px){
+
+    .task-manager-container {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: white;
+        max-width: 100%;
+        padding: 25px;
+        max-height: 100%;
+        border-radius: 0px;
+    }
+
+    .task-list-container {
+        margin-top: 42px;
+    }
+
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        background: white;
+        padding: 0px;
+        width: 100%;
+        max-height: 100%;
+    }
+
+    .title {
+        font-size: 30px;
+        text-align: center;
+        background-color: #7E4EAC;
+        padding: 5px;
+        border-radius: 6px;
+    }
+
+    .list-menu {
+        margin-top: 0px; 
+    }
+
+    .has-text-primary {
+        color: white !important;
+    }
+
+    
 }

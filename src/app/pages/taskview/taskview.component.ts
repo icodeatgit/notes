@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PipeTransform } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { List } from 'src/app/models/list.model';
 import { Task } from 'src/app/models/task.model';
 import { TaskService } from 'src/app/service/task.service';
@@ -14,7 +15,8 @@ export class TaskviewComponent implements OnInit {
   lists: List[] = [];
   tasks: Task[] = [];
 
-  constructor(private taskService: TaskService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private taskService: TaskService, private route: ActivatedRoute, private router: Router,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -33,6 +35,7 @@ export class TaskviewComponent implements OnInit {
   onTaskClick(task: Task) {
     this.taskService.complete(task).subscribe(() => {
       task.completed = !task.completed;
+      task.completed ? this.toastr.success('Task Completed') : this.toastr.error('Task incomplete');
     });
   }
 
