@@ -6,21 +6,38 @@
                 Lists
             </h1>
             <div class="list-menu">
-                <a class="list-menu-item" *ngFor="let list of lists | reverseData" routerLinkActive="is-active" 
-                [routerLink]="['/lists', list._id]">
-                    <p>{{ list.title }}</p>
+                <a class="list-menu-item" (click)="onListClick(list._id)" *ngFor="let list of lists | reverseData" routerLinkActive="is-active"
+                    [routerLink]="['/lists', list._id]">
+                    <p> {{ list.title }}</p>
                 </a>
+                <div *ngIf="mobile" class="modal" [ngClass]="{ 'is-active' : isModalActive }">
+                    <div class="modal-background" (click)="toggleModal()"></div>
+                    <div class="modal-card">
+                            <h1 class="modal-title has-text-primary">TASKS</h1>
+                        <section class="modal-card-body">
+                            <div class="task" *ngFor="let task of tasks | reverseData" (click)="onTaskClick(task)"
+                                [ngClass]="{ 'completed': task.completed }">
+                                <p>{{ task.title }}</p>
+                            </div>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button (click)="toggleModal()" class="button is-primary">Cancel</button>
+                            <button routerLink="./newtask" class="button is-primary">+ New Task</button>
+                        </footer>
+                    </div>
+                </div>
             </div>
             <button class="button is-primary has-text-white" routerLink="/newlist">
                 + New List
             </button>
         </div>
 
-        <div class="task-list-container has-background-light">
+        <div *ngIf="!mobile" class="task-list-container has-background-light">
             <h1 class="title has-text-primary">
                 Tasks
             </h1>
-            <div class="task" *ngFor="let task of tasks | reverseData" (click)="onTaskClick(task)" [ngClass]="{ 'completed': task.completed }">
+            <div class="task" *ngFor="let task of tasks | reverseData" (click)="onTaskClick(task)"
+                [ngClass]="{ 'completed': task.completed }">
                 <p>{{ task.title }}</p>
             </div>
 
