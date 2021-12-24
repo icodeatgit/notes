@@ -74,6 +74,8 @@
     padding: 15px 20px;
     border-radius: 5px;
     margin-top: 10px;
+    align-items: center;
+    display: flex;
 
     &:not(.completed) {
         transition: box-shadow 0.2s ease, transform 0.2s ease;
@@ -111,6 +113,11 @@
     right: 35px;
     border-radius: 50%;
 }
+
+input[type=checkbox], input[type=radio] {
+    margin-right: 10px;
+}
+
 
 @media(max-width: 500px){
 
@@ -166,6 +173,7 @@
 
     .list-menu {
         margin-top: 0px; 
+        overflow: auto;
     }
 
     .has-text-primary {

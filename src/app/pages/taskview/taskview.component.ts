@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, PipeTransform } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { List } from 'src/app/models/list.model';
@@ -35,7 +35,6 @@ export class TaskviewComponent implements OnInit {
         });
       }
     });
-
     this.taskService.getLists().subscribe((lists: List[]) => {
       this.lists = lists;
     });
@@ -51,7 +50,7 @@ export class TaskviewComponent implements OnInit {
   onListClick(listId: string) {
     this.taskService.getTasks(listId).subscribe((tasks: Task[]) => {
       this.tasks = tasks;
-      this.tasks.length > 0 ? this.toggleModal() : this.toastr.info('There are no tasks to display');
+      this.toggleModal();
     });
   }
 

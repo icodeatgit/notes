@@ -17,6 +17,7 @@
                         <section class="modal-card-body">
                             <div class="task" *ngFor="let task of tasks | reverseData" (click)="onTaskClick(task)"
                                 [ngClass]="{ 'completed': task.completed }">
+                                <input type="checkbox" [checked]="task.completed">
                                 <p>{{ task.title }}</p>
                             </div>
                         </section>
@@ -38,6 +39,7 @@
             </h1>
             <div class="task" *ngFor="let task of tasks | reverseData" (click)="onTaskClick(task)"
                 [ngClass]="{ 'completed': task.completed }">
+                <input type="checkbox" [checked]="task.completed">
                 <p>{{ task.title }}</p>
             </div>
 
